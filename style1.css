@@ -1,76 +1,146 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-body{
-    background-color: black;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  color: #fff;
 }
 
+/* Heading Styles */
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Container */
 .container {
-    padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
 }
 
 .main-container {
-    padding: 7px;
-    border-radius: 20px;
-    display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  transition: transform 0.5s ease-in-out;
 }
 
+.main-container:hover {
+  transform: scale(1.05);
+}
+
+/* Battery Container */
 .battery {
-    width: 250px;
-    padding: 10px;
-    border: 1px solid white;
-    height: 100px;
-    border-radius: 20px;
-    background-color: #fff;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
 }
 
 #batter-per {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60%;
-    height: 100%;
-    background-color: rgb(8, 198, 11);
-    border-radius: 10px;
-    animation-name: battery;
-    animation-iteration-count: 1;
-    animation-duration: 2s;
+  width: 120px;
+  height: 220px;
+  background: linear-gradient(to bottom, #32cd32, #00ff00);
+  border: 3px solid #fff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.7);
+  overflow: hidden;
+  transition: background 0.5s ease;
 }
 
-@keyframes battery {
-    from{
-        width: 0;
-    }
-    to{
-        width: 100%;
-    }
+.battery:hover #batter-per {
+  background: linear-gradient(to bottom, #f9d423, #ff4e50);
+  box-shadow: 0px 0px 20px rgba(255, 78, 80, 0.7);
 }
 
 #batteryStatus {
-    position: relative;
-    color: lightblue;
-    z-index: 20;
-    top: 50%;
-    left: 40%;
-    font-family: sans-serif;
-    font-weight: 600;
-    color: #e65b00;
-    text-shadow: 2px 2px black;
-    transform: translateY(-50%);
-    font-size: 2rem;
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.sub-container {
-    background-color: #fff;
-    height: 70%;
-    border-radius: 10px;
-    width: 10px;
-    position: absolute;
-    right: -15px;
-    top: 50%;
-    transform: translateY(-50%);
+.status {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #00ff00;
+  text-shadow: 1px 1px 4px rgba(0, 255, 0, 0.6);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .main-container {
+    padding: 30px;
+  }
+
+  #batter-per {
+    width: 100px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-container {
+    padding: 20px;
+  }
+
+  #batter-per {
+    width: 80px;
+    height: 140px;
+  }
+
+  #batteryStatus {
+    font-size: 1.2rem;
+  }
+
+  .status {
+    font-size: 1.5rem;
+  }
 }
